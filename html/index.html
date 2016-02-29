@@ -1,0 +1,83 @@
+﻿<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>base020</title>
+<link rel="stylesheet" href="pepper_qi020.css" type="text/css" />
+
+<script src="/libs/qimessaging/1.0/qimessaging.js"></script>
+<script src="pepper_qi021.js" charset="utf-8"></script>
+<script src="pepper_qi_navigation010.js"></script>
+
+<script type="text/javascript">
+
+spliterKey = "_";
+commandSplit = "{@@@}";
+
+//開発中で送るデータ文字列を表示する要素のId(実行時はnull)。
+//showSendStringArea = null;
+showSendStringArea = "sendPepperCommands";
+
+</script>
+</head>
+<body onload="startSubscribe()">
+
+<div class="area_all">
+	<!-- 左ナビゲーション -->
+	<div id="area_left" class="area_left">
+		<!-- ナビゲーションメニュー -->
+		<div id="cont_navigation" class="cont_navigation">
+			ナビゲーションメニュー<br />
+			<iframe src="navigation.html" id="navi" class="navi"></iframe>
+		</div>
+		<br />&nbsp;
+		<!-- 補助メニュー -->
+		<div id="sub_menu" class="sub_menu">
+			補助メニュー<br />
+			<div style="margin-bottom: 3%;">
+				Pepperの感情の自動更新<br />
+				<input id="sendPepperGoMethod_emotionViewOn_EventElementButton" type="radio" name="pepper_emotion" onchange="sendPepperFromTablet(this)" style="margin-bottom: 5%;">する
+				<input id="sendPepperGoMethod_emotionViewOff_EventElementButton" type="radio" name="pepper_emotion" onchange="sendPepperFromTablet(this)" checked>しない<br />
+			</div>
+			<button id="sendPepperGoMethod_callPerson_EventElementButton" onclick="sendPepperFromTablet(this)">Pepperの管理者を呼びます</button><br />
+			<button id="sendPepperGoMethod_appClose_EventElementButton" onclick="sendPepperFromTablet(this)">アプリを終了します。</button><br />
+		</div>
+	</div>
+
+	<!-- 右ナビゲーション -->
+	<div id="area_right" class="area_right">
+		<!-- pepperの状態 -->
+		<div id="pepper_status" class="pepper_status">
+			pepperの音声認識がうまくいかない場合は言葉を入力して送信してください。&nbsp;&nbsp;&nbsp;<button onclick="sendPepperFromTablet('sendPepperGoMethod_hearingRestart_methodButton')">ねぇまず聴いて!</button><br />
+			<input id="voiceRetry" type="text" size="50">&nbsp;&nbsp;&nbsp;<button id="sendPepperVoice_voiceRetry_ValueElementButton" onclick="sendPepperFromTablet(this)">Pepperに伝える！</button><br />
+			<table style="border-style:solid;border-width:1px;margin-bottom:2%;">
+				<tr style="border-style:solid;border-width:1px;">
+					<td style="border-style:solid;border-width:1px;width:15%;">Pepperの今の気持ち!</td>
+					<td style="border-style:solid;border-width:1px;width:10%;">興奮度：&nbsp;&nbsp;<span id="primaryEmotion">3</span></td>
+					<td style="border-style:solid;border-width:1px;width:10%;">喜び度：&nbsp;&nbsp;<span id="pleasureLevel">3</span></td>
+					<td style="border-style:solid;border-width:1px;width:15%;">気持ち：&nbsp;&nbsp;<span id="excitementLevel">興奮している</span></td>
+					<td style="border-style:solid;border-width:1px;width:15%;"><span id="emotionState" style="font-size:smaller">更新中(2016-01-01 00:00:00)</span></td>
+				</tr>
+			</table>
+		</div>
+		<div id="appli_contents" class="appli_contents">
+			<iframe name="body_contents" src="start.html" id="body_contents" class="contents"></iframe><br />
+		</div>
+	</div>
+</div>
+
+<br />&nbsp;
+<div style="clear: both;"></div>
+<div class="devlop">
+	【開発用：Pepper伝達文字列】<br />
+	<textarea id="sendPepperCommands" class="devlop">Pepperに流す文字列が表示されます。</textarea><br />
+	<br />
+	【開発用：Pepper送信文字列】<br />
+	<textarea id="recivePepperCommands" class="devlop">Pepperから流れてきた文字列を貼り付けして反映ボタンをおします。</textarea><br />
+	<button onclick="testReciveTabletFromPepper()">反映</button>
+</div>
+
+
+</body>
+</html>

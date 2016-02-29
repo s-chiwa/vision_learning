@@ -1,0 +1,34 @@
+﻿<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>base</title>
+<link rel="stylesheet" href="pepper_qi020.css" type="text/css" />
+
+</head>
+<body>
+	<h3>近景写真撮影</h3>
+	撮影の設定：<button id="takePictureSettingReflesh" onclick="parent.sendPepperFromTablet('sendPepperGoMethod_takePictureSettingReflesh_methodButton')">最新の情報に更新</button><br />
+	画像認識データベースを呼び出す言葉：<input type="text" id="wordsCallVisionDBVisionLearning" style="text-align:left;"><button id="sendPepperMemory_wordsCallVisionDBVisionLearning_ValueElementButton" onclick="parent.sendPepperFromTablet(this)">更新</button><br />
+	認識できたら話させたい言葉：<input type="text" id="wordsRecognitionVisionLearning"><button id="sendPepperMemory_wordsRecognitionVisionLearning_ValueElementButton" onclick="parent.sendPepperFromTablet(this)">更新</button><br />
+	画像認識データベース名(英数字)：<input type="text" id="nameRecoDatabaseVisionDBVisionLearning" style="text-align:left;"><button id="sendPepperMemory_nameRecoDatabaseVisionDBVisionLearning_ValueElementButton" onclick="parent.sendPepperFromTablet(this)">更新</button><br />
+	一度に左右に回転する角度:<input type="number" id="turnThetaVisionLearning" size="10" value="7">度<button id="sendPepperMemory_turnThetaVisionLearning_ValueElementButton" onclick="parent.sendPepperFromTablet(this)">更新</button><br />
+	視線の高さ:<input type="number" id="poseRadianVisionLearning" size="10" value="0">度<button id="sendPepperMemory_poseRadianVisionLearning_ValueElementButton" onclick="parent.sendPepperFromTablet(this)">更新</button><br />
+	一度に後ろに下がる距離：<input type="number" id="moveDistanceVisionLearning" size="10" value="0.1">ｍ<button id="sendPepperMemory_moveDistanceVisionLearning_ValueElementButton" onclick="parent.sendPepperFromTablet(this)">更新</button><br />
+	撮影の回数：<input type="number" id="timesActionThetaVisionLearning" size="10" value="2" disabled="disabled">回<button id="sendPepperMemory_timesActionThetaVisionLearning_ValueElementButton" onclick="parent.sendPepperFromTablet(this)">更新</button><br />
+	写真の解像度(※推奨640×480px):<br />
+	<select id='resolutionVisionLearning'>
+		<option value="2">640×480px</option>	
+		<option value="1">320×240px</option>	
+		<option value="3">1280×960px</option>	
+		<option value="0">160×120px</option>	
+	</select>&nbsp;&nbsp;&nbsp;<button id="sendPepperMemory_resolutionVisionLearning_ValueElementButton" onclick="parent.sendPepperFromTablet(this)">更新</button><br />
+
+	使うカメラ(※下のカメラをどうしても使い時だけBottomCamera):<br />
+	<select id='cameraIdVisionLearning'>
+		<option value="0">TopCamera(ひたい)</option>	
+		<option value="1">BottomCamer(口元)</option>	
+	</select>&nbsp;&nbsp;&nbsp;<button id="sendPepperMemory_cameraIdVisionLearning_ValueElementButton" onclick="parent.sendPepperFromTablet(this)">更新</button><br />
+	
+</body>
+</html>

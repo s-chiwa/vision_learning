@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<visionRecoPepper>
+	<database>
+		<databaseName>abc</databaseName>
+		<databaseLabel>トイレマーク</databaseLabel>
+		<headPitch>0</headPitch>
+		<dataDetail>
+			<imageFile>111.png</imageFile>
+			<imageLabel>トイレマーク111</imageLabel>
+		</dataDetail>
+		<dataDetail>
+			<imageFile>222.png</imageFile>
+			<imageLabel>トイレマーク222</imageLabel>
+		</dataDetail>
+	</database>
+	<database>
+		<databaseName>def</databaseName>
+		<databaseLabel>マークトイレ</databaseLabel>
+		<headPitch>0</headPitch>
+		<dataDetail>
+			<imageFile>333.png</imageFile>
+			<imageLabel>トイレマーク333</imageLabel>
+		</dataDetail>
+		<dataDetail>
+			<imageFile>444.png</imageFile>
+			<imageLabel>トイレマーク444</imageLabel>
+		</dataDetail>
+	</database>
+</visionRecoPepper>

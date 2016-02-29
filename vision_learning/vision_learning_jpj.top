@@ -1,0 +1,106 @@
+topic: ~vision_learning()
+language: jpj
+
+#アプリ終了
+u:(画像を覚えてくれてありがとう) また使ってください! $onBridgeMethod="appClose"
+
+#アプリ終了@開発
+u:(このアプリ終了) 了解! $onBridgeMethod="appClose"
+
+#聞き取り中断@開発
+u:(聞き取り中断) 了解。聞きとり中断。 $onBridgeMethod="hearingStop"
+
+#聞き取り再開@開発・実際共通
+#Pepperちゃんのタブレットボタンを押して!
+
+#聞き取り中断@開発
+u:(しばらくタブレットを使うよ) はーい。聞きとりを中断します。 $onBridgeMethod="hearingStop"
+
+#感情ログの表示／非表示
+u:(感情ログをみせて) はーい。感情ログを更新します。 $onBridgeMethod="emotionViewOn"
+u:(感情ログを更新しないで) はーい。更新をストップします。 $onBridgeMethod="emotionViewOff"
+
+#マニュアルを表示
+u:(ヘルプを表示して) ヘルプを表示します。 $onBridgeMethod="viewHelp"
+
+#一般的にScopeが発生していないときに理解できなければごめんなさいするのが自然では？
+u:("e:Dialog/Fallback") うーんと、 $onBridgeMethod="dialogException" 
+u:("e:Dialog/NotUnderstood") うーんと、 $onBridgeMethod="dialogException"
+
+#####移動＆視線(頭の向き)コントロール#####
+
+#歩く
+u:(前に進んで) はーい。前に進みます。 $onBridgeMethod="goForward"
+u:(少し進んで) はーい。少し進みます。 $onBridgeMethod="goForwardLittle"
+u:(後ろにさがって) はーい。後ろにさがります。 $onBridgeMethod="goBack"
+u:(少しさがって) はーい。少しさがります。 $onBridgeMethod="goBackLittle"
+
+#方向変え
+u:(右ななめ前を向いて)  はーい。右ななめ前を向きます。 $onBridgeMethod="goRightForward"
+u:(右を向いて)  はーい。右を向きます。 $onBridgeMethod="goRight"
+u:(右ななめ後ろを向いて)  はーい。右ななめ後ろを向きます。 $onBridgeMethod="goRightBack"
+u:(後ろを向いて)  はーい。後ろを向きます。 $onBridgeMethod="goTurnBack"
+u:(左ななめ後ろを向いて)  はーい。左ななめ後ろを向きます。 $onBridgeMethod="goLeftBack"
+u:(左を向いて)  はーい。左を向きます。 $onBridgeMethod="goLeft"
+u:(左ななめ前を向いて)  はーい。左ななめ前を向きます。 $onBridgeMethod = "goLeftForward"
+
+#頭の位置訂正
+u:(頭を上に動かして) $onBridgeMethod = "upHeadPitch"
+u:(頭を下に動かして) $onBridgeMethod = "downHeadPitch"
+u:(まっすぐ前を向いて) $onBridgeMethod = "setHeadYawZero"
+u:(頭を左に動かして) $onBridgeMethod = "leftHeadYaw"
+u:(頭を右に動かして) $onBridgeMethod = "rightHeadYaw"
+
+u:(腰を左に) $onBridgeMethod = "leftHipRoll"
+u:(腰を右に) $onBridgeMethod = "rightHipRoll"
+u:(腰を伸ばして) $onBridgeMethod = "strechHipPitch"
+u:(腰を曲げて) $onBridgeMethod = "bendHipPitch"
+u:(ひざを伸ばして) $onBridgeMethod = "strechKneePitch"
+u:(ひざを曲げて) $onBridgeMethod = "bendKneePitch"
+
+u:(いまの視線の高さをおぼえて) $onBridgeMethod = "recordHeadPitch"
+u:(覚えた視線の高さを再現して) $onBridgeMethod = "reProductionHeadPitch"
+
+#####アプリ固有の処理#####
+dynamic:databaseVision
+
+#マニュアル(固定名：vision_learn_manual.xml)をもとにした学習
+u:(これから覚えてほしい画像を用意したよ) はーい。調べてみるね。 $onBridgeMethod="learningByManual"
+
+#画像認識用写真撮影
+
+#初期設定@写真撮影
+u:(この場所を認識してほしい) まず初期設定をしてください。 $onBridgeMethod="demandTakePictureInput"
+
+#写真を撮るときの初期設定を答えます。
+u:(写真を撮った後でデータベースを呼び出すには) それはね、「 $wordsCallVisionDBVisionLearning 」といってね。
+u:(画像を認識できたらなんていうの) それはね、「 $wordsRecognitionVisionLearning 」と言って見つけたのをつたえます。
+u:(写真を撮るときの回転角度は) はーい。 $turnThetaVisionLearning 度です。
+u:(写真を撮るときの視線の高さは) はーい。 $poseRadianVisionLearning 度です。
+u:(一度に後ろに下がる距離は) はーい。。 $moveDistanceVisionLearning メートルです。
+#u:(写真の解像度は) えーと。 $resolutionVisionLearning です。
+#u:(撮影に使うカメラは) えーと。 $cameraIdVisionLearning です。
+
+#Pepperちゃんの視野そのものずばりを作るための位置に誘導(faceTracker)@写真撮影
+u:(写真撮るからついてきて) はーい。どこ行くんだろう？ $onBridgeMethod="askComingWith"
+
+#Pepperちゃんの誘導終了(faceTracker)@写真撮影
+u:(ここから写真をとりはじめるよ) $onBridgeMethod="stopCommingWith"
+
+#Pepperちゃんの視野そのものずばり(画像加工なし)のための写真を撮影@写真撮影
+u:(今見ている風景をおぼえて) はーい。写真をとりながら動きます。 $onBridgeMethod="takePictureByNowSeeing"
+
+#学習した画像認識データベースを呼びます。
+u:(_~databaseVision を見分けられますか) データはあります。「$1 が見えるかな」って話しかけられたらさがします。 $onBridgeMethod="callVisionReco"
+
+#学習した画像認識データベースを呼びます。(移動可能な物)
+u:(~databaseVision が見えるかな) 注意して探してみるよ。 $onBridgeMethod="startVisionReco"
+
+#画像認識を停止します。
+u:(もう探さなくてもいいよ) はーい。探すのをやめるます。 $onBridgeMethod="stopVisionReco"
+
+#データベースの中身を表示します。
+u:(今のデータベースにどんな画像が登録されているの) はーい。データベースの中身を表示する準備をします。 $onBridgeMethod="showVisionReco"
+
+#データベースの現状の設定を確認します。
+u:(今の画像認識できるのはなんですか) えーと。$onBridgeMethod="sayVisionRecoName"

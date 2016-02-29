@@ -1,0 +1,83 @@
+﻿<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>base</title>
+<link rel="stylesheet" href="pepper_qi020.css" type="text/css" />
+<script type="text/javascript">
+function copyData(selectedItem){
+	parent.	document.getElementById("voiceRetry").value = selectedItem.value;
+}
+</script>
+</head>
+<body>
+	<h3>姿勢の制御と移動</h3>
+	※姿勢の制御と移動はタブレットを操作するために、人が近くにいること自体が<br />
+	Pepperの動作の妨げになりますのでスマホから行ってください。<br />
+	(※パスワード必須)スマホからアプリにアクセスするためのURLを<button onclick="parent.sendPepperFromTablet('sendPepperGoMethod_showSmartURL_methodButton')">表示する</button><br />
+	<div>
+	URL::<span id='urlAccessBySmart'></span>
+	</div>
+	<br />
+	<table style="margin-left:3%;margin-right:1%;">
+	<tr>
+		<td rowspan="3">
+			<img src="img/juliet_joints.png"><br />
+			Quote By:<br />
+			ALDEBARAN DOCUMENTATION<br />
+			Kinmatics Data-Joints(2.4.2)<br />
+		</td>
+		<td>
+			(HeadPitch:HeadYaw)<br />
+			<select onchange="copyData(this)">
+				<option>頭の制御</option>
+				<option>頭を上に動かして</option>
+				<option>頭を下に動かして</option>
+				<option>まっすぐ前を向いて</option>
+				<option>頭を左に動かして</option>
+				<option>頭を右に動かして</option>
+				<option>いまの視線の高さをおぼえて</option>
+				<option>覚えた視線の高さを再現して</option>
+			</select>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			(HipRoll:HipPitch:KneePitch)<br />
+			<select onchange="copyData(this)">
+				<option>体幹の制御</option>
+				<option>腰を左に</option>
+				<option>腰を右に</option>
+				<option>腰を伸ばして</option>
+				<option>腰を曲げて</option>
+				<option>ひざを伸ばして</option>
+				<option>ひざを曲げて</option>
+			</select>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			move<br />
+			<select onchange="copyData(this)">
+				<option>移動</option>
+				<optgroup label="移動">
+					<option>前に進んで</option>
+					<option>少し進んで</option>
+					<option>後ろにさがって</option>
+					<option>少しさがって</option>
+				</optgroup>
+				<optgroup label="方向変更">
+					<option>右ななめ前を向いて</option>
+					<option>右を向いて</option>
+					<option>右ななめ後ろを向いて</option>
+					<option>後ろを向いて</option>
+					<option>左ななめ後ろを向いて</option>
+					<option>左を向いて</option>
+					<option>左ななめ前を向いて</option>
+				</optgroup>
+			</select>
+		</td>
+	</tr>
+	</table>
+</body>
+</html>

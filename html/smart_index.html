@@ -1,0 +1,122 @@
+﻿<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>base020</title>
+<link rel="stylesheet" href="smart_pepper_qi020.css" type="text/css" />
+
+<script src="/libs/qimessaging/1.0/qimessaging.js"></script>
+<script src="pepper_qi_smph022.js" charset="utf-8"></script>
+
+<script type="text/javascript">
+
+spliterKey = "_";
+commandSplit = "{@@@}";
+
+//開発中で送るデータ文字列を表示する要素のId(実行時はnull)。
+//showSendStringArea = null;
+showSendStringArea = "sendPepperCommands";
+
+function copySelectToInput(selectedItem) {
+	//alert(selectedItem.id);
+	id = (selectedItem.id).replace("ComList","");
+	document.getElementById(id).value = selectedItem.value;
+}
+
+</script>
+</head>
+<body onload="startSubscribe()">
+pepperの音声認識がうまくいかない場合は<br />
+言葉を入力して送信してください。
+&nbsp;&nbsp;&nbsp;<button onclick="sendPepperFromTablet('sendPepperGoMethod_hearingRestart_methodButton')">ねぇまず聴いて!</button><br />
+
+<div style="margin-top: 1%;margin-bottom: 1%;">
+#メインの動作#<br />
+<input id="voiceRetryMain" type="text" size="20">&nbsp;&nbsp;&nbsp;<button id="sendPepperVoice_voiceRetryMain_ValueElementButton" onclick="sendPepperFromTablet(this)">伝える！</button><br />
+<select id="voiceRetryMainComList" onchange="copySelectToInput(this)">
+<option> </option>
+<option>画像を覚えてくれてありがとう</option>
+<option>ヘルプを表示して</option>
+<option>しばらくタブレットを使うよ</option>
+<optgroup label="このアプリで特有の動作">
+<option>これから覚えてほしい画像を用意したよ</option>
+<option>写真撮るからついてきて</option>
+<option>ここから写真をとりはじめるよ</option>
+<option>今見ている風景をおぼえて</option>
+<option>【ユーザ選択肢】 を見分けられますか</option>
+<option>【ユーザ選択肢】が見えるかな</option>
+<option>もう探さなくてもいいよ</option>
+<option>今のデータベースにどんな画像が登録されているの</option>
+<option>今の画像認識できるのはなんですか</option>
+</optgroup>
+<option>感情ログをみせて</option>
+<option>感情ログを更新しないで</option>
+</select>
+<br />&nbsp;
+</div>
+
+<div style="margin-top: 1%;margin-bottom: 1%;">
+#移動の命令#<br />
+<input id="voiceRetryMove" type="text" size="20">&nbsp;&nbsp;&nbsp;<button id="sendPepperVoice_voiceRetryMove_ValueElementButton" onclick="sendPepperFromTablet(this)">伝える！</button><br />
+<select id="voiceRetryMoveComList" onchange="copySelectToInput(this)">
+<optgroup label="移動">
+<option>前に進んで</option>
+<option>少し進んで</option>
+<option>後ろにさがって</option>
+<option>少しさがって</option>
+</optgroup>
+<optgroup label="方向変更">
+<option>右ななめ前を向いて</option>
+<option>右を向いて</option>
+<option>右ななめ後ろを向いて</option>
+<option>後ろを向いて</option>
+<option>左ななめ後ろを向いて</option>
+<option>左を向いて</option>
+<option>左ななめ前を向いて</option>
+</optgroup>
+</select>
+<br />&nbsp;
+</div>
+
+<div style="margin-top: 1%;margin-bottom: 1%;">
+#動作の命令#<br />
+<input id="voiceRetryMotion" type="text" size="20">&nbsp;&nbsp;&nbsp;<button id="sendPepperVoice_voiceRetryMotion_ValueElementButton" onclick="sendPepperFromTablet(this)">伝える！</button><br />
+<select id="voiceRetryMotionComList" onchange="copySelectToInput(this)">
+<optgroup label="今回使用する動作">
+<option>頭を上に動かして</option>
+<option>頭を下に動かして</option>
+<option>まっすぐ前を向いて</option>
+<option>頭を左に動かして</option>
+<option>頭を右に動かして</option>
+<option>いまの視線の高さをおぼえて</option>
+<option>覚えた視線の高さを再現して</option>
+</optgroup>
+<optgroup label="今回使わない動作">
+<option>腰を左に</option>
+<option>腰を右に</option>
+<option>腰を伸ばして</option>
+<option>腰を曲げて</option>
+<option>ひざを伸ばして</option>
+<option>ひざを曲げて</option>
+</optgroup>
+</select>
+<br />&nbsp;
+</div>
+
+
+
+<br />&nbsp;
+<div style="clear: both;"></div>
+<div class="devlop">
+	【開発用：Pepper伝達文字列】<br />
+	<textarea id="sendPepperCommands" class="devlop">Pepperに流す文字列が表示されます。</textarea><br />
+	<br />
+	【開発用：Pepper送信文字列】<br />
+	<textarea id="recivePepperCommands" class="devlop">Pepperから流れてきた文字列を貼り付けして反映ボタンをおします。</textarea><br />
+	<button onclick="testReciveTabletFromPepper()">反映</button>
+</div>
+
+
+</body>
+</html>

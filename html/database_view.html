@@ -1,0 +1,27 @@
+﻿<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>base</title>
+<link rel="stylesheet" href="pepper_qi020.css" type="text/css" />
+
+</head>
+<body>
+	<h3>データベース表示</h3>
+	1.まずデータベース名を更新してください<br />
+	<button onclick="parent.sendPepperFromTablet('sendPepperGoMethod_listupDBLabel_methodButton')">データベース名更新</button><br />
+	2.知りたいデータベース名を選択してください。<br />
+	<div id="databaseSelect">
+		<select id="listDatabaseNameVisionLearning">
+			<option> </option>
+			<option>撮影作業領域</option>
+			<option>システム初期設定</option>
+		</select>
+	</div>
+		&nbsp;<button onclick="parent.sendPepperFromTablet('sendPepperMemory_listDatabaseNameVisionLearning_ValueElement{@@@}sendPepperGoMethod_makeThumnailDatabase_methodButton')">表示</button>
+	
+	<div id = "showImage">
+		ここに画像が表示されます。
+	</div>
+</body>
+</html>

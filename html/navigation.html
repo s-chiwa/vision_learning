@@ -1,0 +1,27 @@
+﻿<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>base</title>
+<link rel="stylesheet" href="pepper_qi020.css" type="text/css" />
+</head>
+<body style="overflow-y:scroll;">
+アプリケーション名<br />
+<button id="startHtmlButton" onclick="parent.buttonAnchor('start.html')">最初のページ</button><br>
+<button id="viewDatabaseHtmlButton" onclick="parent.buttonAnchor('database_view.html')">画像認識データベース表示</button><br>
+<button id="moveAndMotionHtmlButton" onclick="parent.buttonAnchor('move_motion.html')">移動・姿勢制御(参考)</button><br>
+<button id="takePictureSettingHtmlButton" onclick="parent.buttonAnchor('take_picture.html')">近景写真連続撮影</button><br>
+
+<!-- 
+<button id="searchHtmlButton" onclick="parent.buttonAnchorNew(document.getElementById('searchUrl').value)">レシピ検索!</button><br>
+ -->
+<div style='display: none;'>
+	リンク用隠しURL入力窓
+	<input type="text" id="searchUrl" value="http://www.yahoo.co.jp/"> 
+</div>
+<br />&nbsp;<br />
+<button id="helpHtmlButton" onclick="parent.buttonAnchor('help.html')">ヘルプ</button><br>
+
+
+</body>
+</html>

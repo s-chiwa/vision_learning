@@ -1,0 +1,30 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<package version="0.0.0" uuid="vision_learning03-461716">
+ <names>
+  <name lang="en_US">vision_learning03</name>
+  <name lang="ja_JP">vision_learning</name>
+ </names>
+ <descriptions>
+  <description lang="en_US">learn image and take some pictures for vision recognition,tool</description>
+  <description lang="ja_JP">Pepperちゃんに1.加工された画像をFTPで送っておぼえさせる2.画像認識で使う写真をとるツールです。#ツール#</description>
+ </descriptions>
+ <supportedLanguages>
+  <language>en_US</language>
+  <language>ja_JP</language>
+ </supportedLanguages>
+ <descriptionLanguages>
+  <language>en_US</language>
+  <language>ja_JP</language>
+ </descriptionLanguages>
+ <contents>
+  <behaviorContent path="behavior_1">
+   <userRequestable/>
+   <nature>interactive</nature>
+   <permissions/>
+  </behaviorContent>
+ </contents>
+ <requirements>
+  <naoqiRequirement minVersion="2.4"/>
+  <robotRequirement model="JULIETTE"/>
+ </requirements>
+</package>

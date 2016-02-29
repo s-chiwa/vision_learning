@@ -1,0 +1,24 @@
+﻿<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>base</title>
+<link rel="stylesheet" href="pepper_qi.css" type="text/css" />
+<link rel="stylesheet" href="table.css" type="text/css" />
+
+</head>
+<body style="overflow-y:scroll;">
+			<div class="area_apli_exp">
+				【アプリケーション】<span id="apliName">vision_learning(画像認識作成補助)</span><br />
+				【アプリケーションの説明】<span id="apliDigestDetail">Pepperちゃんに1.加工された画像をFTPで送っておぼえさせる2.画像認識で使う写真をとるツールです。#ツール#</span><br />
+					【このアプリケーションのヘルプ】<br />
+					<div id="apliManualDetail" class="apliManualDetail">
+						♪「 」というと、あらかじめ入れておいた画像とマニュアルを基に画像認識をします。<br />
+						♪「 」というと、一番近くにいる人の顔を見分けてその人の近くまで行きます。<br />
+						♪「 」というと、決められたルールに従って写真を撮っていきます。<br />
+					</div>
+			</div>
+				<button id="sendPepperSayLine_apliManualDetail_TextElementButton" onclick="parent.sendPepperFromTablet(this)">１項目ずつ読み上げます</button>
+				<button id="sendPepperSay_apliManualDetail_TextElementButton" onclick="parent.sendPepperFromTablet(this)">すべて読み上げます</button>
+</body>
+</html>
